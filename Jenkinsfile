@@ -34,7 +34,7 @@ pipeline {
                 }
             }
         }
-        stage('Docker Build'){
+        stage('Docker Push'){
             steps{
                 script{
                     // Login to Docker Hub
