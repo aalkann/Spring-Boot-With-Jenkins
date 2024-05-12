@@ -28,9 +28,8 @@ pipeline {
         
         stage('Docker Build'){
             steps{
-                script{
                     // Build the image
-                    docker.build('ahmettt/app')
+                    docker.build('ahmettt/app:latest')
                 }
             }
         }
@@ -40,7 +39,7 @@ pipeline {
                     // Login to Docker Hub
                     withDockerRegistry(credentialsId: 'docker-credentail') {
                         // Push the image to the hub
-                        docker.image("ahmettt/app").push() 
+                        docker.image("ahmettt/app:latest").push() 
                     }
                 }
             }
