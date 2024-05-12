@@ -26,13 +26,19 @@ pipeline {
             }
         }
         
-        stage('Docker Build and Push'){
+        stage('Docker Build'){
+            steps{
+                script{
+                    // Build the image
+                    docker.build('ahmettt/app')
+                }
+            }
+        }
+        stage('Docker Build'){
             steps{
                 script{
                     // Login to Docker Hub
                     withDockerRegistry(credentialsId: 'docker-credentail') {
-                        // Build the image as ahmettt/app
-                        docker.build('ahmettt/app')
                         // Push the image to the hub
                         docker.image("ahmettt/app").push() 
                     }
