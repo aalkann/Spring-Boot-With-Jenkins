@@ -2,7 +2,7 @@ FROM openjdk:21
 
 WORKDIR /app
 
-COPY target/app.jar /app
+COPY app/target/app.jar /app
 
 EXPOSE 8080
 
