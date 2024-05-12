@@ -9,14 +9,7 @@ pipeline {
     
     agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                // Bring the last version of the project
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/aalkann/Spring-Boot-With-Jenkins.git']])
-            }
-        }
-        
+    stages {        
         stage('Build') {
             steps {
                 script{
